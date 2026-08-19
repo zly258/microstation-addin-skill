@@ -7,7 +7,7 @@ description: Build, modify, debug, and review MicroStation CONNECT C# Addin proj
 
 ## Core Rules
 
-Use the local course references first. Do not invent MicroStation API names when an example exists in `references/course-code-snippets.md`.
+Use the local course references first. Do not invent MicroStation API names when an example exists in the focused references or is indexed by `references/course-code-snippets.md`.
 
 Target the tutorial baseline unless the user's repo proves otherwise:
 
@@ -45,7 +45,7 @@ Read only the relevant reference file(s):
 - `references/ec-itemtype.md`: EC schema/instance flow and ItemType create/read/update/delete/attach examples.
 - `references/winforms-ui.md`: WinForms patterns, MicroStation adapter/preview notes, and mandatory DPI/Microsoft YaHei UI rules.
 - `references/wpf-ui.md`: WPF window patterns based on `PlaceSupportWindow` and `PlaceCustomSupportTool`: XAML layout, ViewModel binding, `WPFInteropHelper`, singleton window lifecycle, and DgnElementSetTool integration.
-- `references/course-code-snippets.md`: mechanically extracted original code blocks from the course Markdown. Search this file for exact examples before writing large code.
+- `references/course-code-snippets.md`: searchable catalog of the course example groups and their routing to the focused references. Use it to locate the right API/topic before writing large code.
 
 ## Workflow
 
@@ -54,10 +54,10 @@ Read only the relevant reference file(s):
    - Addin entry class and constructor signature.
    - `Commands.xml` key-in/function mappings.
    - Existing namespaces and helper classes.
-2. Choose the closest course snippet:
-   - Search `course-code-snippets.md` by API or task name, e.g. `LineElement`, `DTransform3d`, `SelectionSetManager`, `ScanCriteria`, `FenceManager`, `DgnElementSetTool`, `ItemTypeLibrary`, `DgnECManager`, `AutoScaleMode`.
+2. Choose the closest course pattern:
+   - Search `course-code-snippets.md` and the routed focused reference by API or task name, e.g. `LineElement`, `DTransform3d`, `SelectionSetManager`, `ScanCriteria`, `FenceManager`, `DgnElementSetTool`, `ItemTypeLibrary`, `DgnECManager`, `AutoScaleMode`.
 3. Adapt conservatively:
-   - Keep `Session.Instance.GetActiveDgnModel()`, `GetActiveDgnFile()`, and `GetActiveDgnModelRef()` patterns consistent with the snippet.
+   - Keep `Session.Instance.GetActiveDgnModel()`, `GetActiveDgnFile()`, and `GetActiveDgnModelRef()` patterns consistent with the verified reference.
    - Use `AddToModel()` for new elements, `ReplaceInModel(original)` for modified elements, and `DeleteFromModel()` for deletion.
    - Wrap `ElementCopyContext` in `using`.
    - Check for `null` when reading elements, ItemTypes, EC instances, and file/model objects.
