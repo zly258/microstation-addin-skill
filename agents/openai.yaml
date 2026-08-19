@@ -1,0 +1,4 @@
+interface:
+  display_name: "MicroStation Addin"
+  short_description: "MicroStation C# Addin code assistant"
+  default_prompt: "Use $microstation-addin to build or review a MicroStation C# Addin with commands, element APIs, WinForms DPI rules, and debugging guidance."
